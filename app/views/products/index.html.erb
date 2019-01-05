@@ -12,6 +12,7 @@
           <th>Nombre</th>
           <th>URL</th>
           <th>Descripción</th>
+          <th></th>
         </tr>
         <% @products.each do |product| %>
           <tr>
@@ -19,6 +20,10 @@
             <td><%= product.name %></td>
             <td><%= product.url %></td>
             <td><%= product.description %></td>
+            <td>
+              <%= link_to "Editar", edit_product_path(product) %>
+              <%= link_to "Eliminar", product, method: :delete, data: {confirm: "Seguro deseas eliminarlo?"} %>
+            </td>
           </tr>
         <% end %>
       </table>
